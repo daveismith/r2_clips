@@ -1,0 +1,7 @@
+r2lc-manifest 1
+flash.fld.r2lc 200 a0e9bfd1
+flash.psi.r2lc 110 78c3430a
+flash.rld.r2lc 232 3da160a5
+pulse.fld.r2lc 5284 b53f8e34
+pulse.psi.r2lc 2404 53414c68
+pulse.rld.r2lc 6308 573c1893
