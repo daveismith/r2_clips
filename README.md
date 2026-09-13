@@ -39,10 +39,12 @@ $PY $T info *.r2lc                                              # check what the
 $PY $T manifest .                                               # then rewrite manifest.txt
 ```
 
-Commit the clips and the manifest together, then tag the set:
+Commit the clips and the manifest together, then tag the set with the next version and push
+the tag. The firmware pulls a tag, not a branch (`CONFIG_PANEL_LEDS_PULL_URL`, v2 today), so
+move that setting to the new tag too:
 
 ```sh
-git tag v2 && git push origin main v2
+git tag v3 && git push origin main v3
 ```
 
 ## Pulling onto the droid
@@ -51,8 +53,8 @@ Pin a tag rather than a branch. A tag makes a pull reproducible, and it avoids
 `raw.githubusercontent.com` serving a half-updated set from its cache of a branch:
 
 ```
-esp32s3> leds pull -n https://raw.githubusercontent.com/daveismith/r2_clips/v1/
-esp32s3> leds pull https://raw.githubusercontent.com/daveismith/r2_clips/v1/
+esp32s3> leds pull -n https://raw.githubusercontent.com/daveismith/r2_clips/v2/
+esp32s3> leds pull https://raw.githubusercontent.com/daveismith/r2_clips/v2/
 ```
 
 `-n` reports what would change and downloads nothing. A pull reports every clip as new,
