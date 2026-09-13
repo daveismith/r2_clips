@@ -88,8 +88,19 @@ output is deterministic, so an unchanged clip keeps its bytes and a pull skips i
 | `vscan` | a row of the colour sweeping top to bottom and back | 50 ms a step |
 | `march` | halves (thirds on the rear logic) trading places on the beat, a new hue each segment | 48.3 s, once |
 | `failure` | the display's own pattern racing, its hues turning, a fade to black, then dark | 18 s, once |
+| `plasma` | four sine fields drifting through the hue wheel | a 20 s loop |
+| `fadescroll` | rainbow bands scrolling on the slant under a travelling fade | a 20 s loop |
+| `colourwheel` | the hue wheel round the display's centre, turning twice a loop | a 20 s loop |
+| `fractal` | a Julia set turning through its family | a 20 s loop |
+| `metaballs` | three coloured blobs on Lissajous paths, merging and parting | a 20 s loop |
 
-All but `march` and `failure` are tinted: they take the colour given to `leds run ... -c
+The last five are generated from formulas of our own, at 25 fps, drawn at the LEDs' own
+positions, so the rear logic's brick rows bend them as the board does. They have their own
+colours and ignore a run's. They are stored with a 256-colour palette where that loses
+nothing visible (no cell more than 32 of 255 from its colour), and in full colour otherwise:
+the fractal needs it.
+
+All but `march`, `failure` and the generated five are tinted: they take the colour given to `leds run ... -c
 rrggbb`, and a blue when none is given. `march` has its own hue per segment, and `failure`
 the display's own colours; one PSI clip serves both PSIs, and takes the front PSI's.
 
